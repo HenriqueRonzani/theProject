@@ -38,7 +38,7 @@ return [
         'mongodb' => [
             'driver' => 'mongodb',
             'dsn' => env('MONGODB_URI'),
-            'database' => env('DB_DATABASE', 'allData'),
+            'database' => env('DB_DATABASE'),
             'options' => ['database' => 'admin']
         ],
 

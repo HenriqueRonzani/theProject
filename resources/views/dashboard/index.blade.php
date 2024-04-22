@@ -91,7 +91,7 @@
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="mx-2 bg-blue-400 hover:bg-blue-500">
+                <x-danger-button additional-classes="mx-2 focus:ring-red-500 bg-blue-500 hover:bg-blue-600">
                     {{ __('Atualizar dados') }}
                 </x-danger-button>
                 
