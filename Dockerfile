@@ -1,5 +1,5 @@
 # Use the official PHP image as the base image
-FROM php:7.4-fpm
+FROM php:8.1-fpm
 
 # Set the working directory inside the container
 WORKDIR /var/www/html
@@ -25,6 +25,9 @@ COPY . .
 
 # Install project dependencies
 RUN composer install --no-interaction --no-scripts --no-plugins --ignore-platform-reqs
+
+# Remove nunomaduro/termwind package
+RUN composer remove nunomaduro/termwind --update-with-dependencies
 
 # Generate application key
 RUN php artisan key:generate
