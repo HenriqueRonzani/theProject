@@ -31,9 +31,10 @@ class DataController extends Controller
     {
         $validated = $request->validate([
             'nome' => 'required|string',
-            'idade' => 'required|integer',
-            'cargo' => 'required|string',
-            'telefone' => 'required',
+            'bairro' => 'required|string',
+            'contato' => 'required|string',
+            'lideranca' => 'required|string',
+            'resultado' => 'required|string'
         ]);
 
         Data::create($validated);
@@ -64,9 +65,10 @@ class DataController extends Controller
     {
         $validated = $request->validate([
             'nome' => 'required|string',
-            'idade' => 'required|integer',
-            'cargo' => 'required|string',
-            'telefone' => 'required',
+            'bairro' => 'required|string',
+            'contato' => 'required|string',
+            'lideranca' => 'required|string',
+            'resultado' => 'required|string'
         ]);
 
         $data = Data::find($request->_id);

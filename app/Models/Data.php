@@ -13,8 +13,9 @@ class Data extends Model
 
     protected $fillable = [
         'nome',
-        'idade',
-        'cargo',
-        'telefone'
+        'contato',
+        'bairro',
+        'lideranca',
+        'resultado'
     ];
 }

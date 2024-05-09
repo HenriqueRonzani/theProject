@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AppController;
+use App\Http\Middleware\CorsMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -19,15 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route ::get('/mongodbtest', function (Request $request){
-    $connection = DB::connection('mongodb');
-    $msg = 'MongoDB is accessible!';
+Route::get('/getData', [AppController::class, 'getData']);
 
-    try {
-        $connection->command(['ping' => 1]);
-    } catch (\Exception $e) {
-        $msg = 'MongoDB is not accessibe. Error: ' . $e->getMessage();
-    }
+Route::post('/saveData', [AppController::class, 'saveData']);
 
-    return ['msg' => $msg];
-});
+Route::post('/editData', [AppController::class, 'editData']);
+
+Route::middleware('auth:sanctum')->get('api/login', [AppController::class, 'login']);

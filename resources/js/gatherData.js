@@ -3,13 +3,15 @@ import $ from 'jquery';
 $('tr').on('click', function() {
     var id = $(this).data('id');
     var name = $(this).find('td.name').text().trim();
-    var idade = $(this).find('td.idade').text().trim();
-    var cargo = $(this).find('td.cargo').text().trim();
-    var telefone = $(this).find('td.telefone').text().trim();
+    var bairro = $(this).find('td.bairro').text().trim();
+    var contato = $(this).find('td.contato').text().trim();
+    var lideranca = $(this).find('td.lideranca').text().trim();
+    var resultado = $(this).find('td.resultado').text().trim();
 
     $('#_id').val(id);
     $('#name').val(name);
-    $('#idade').val(idade);
-    $('#cargo').val(cargo);
-    $('#telefone').val(telefone);
+    $('#bairro').val(bairro);
+    $('#contato').val(contato)
+    $('#lideranca').val(lideranca);
+    $('#resultado').val(resultado);
 })
