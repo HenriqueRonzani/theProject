@@ -25,9 +25,18 @@ COPY . .
 
 # Install project dependencies
 RUN composer install --no-interaction --no-scripts --no-plugins --ignore-platform-reqs
-
+# Copy the project files into the container
+COPY . .
+# Copy the .env.example file into the container
+COPY .env.example .env
+# Install project dependencies
+RUN composer install --no-interaction --no-scripts --no-plugins --ignore-platform-reqs
 # Generate application key
 RUN php artisan key:generate
+# Set permissions for storage and bootstrap/cache directories
+RUN chown -R www-data:www-data \
+    storage \
+    bootstrap/cache
 
 # Set permissions for storage and bootstrap/cache directories
 RUN chown -R www-data:www-data \
