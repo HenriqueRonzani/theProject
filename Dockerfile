@@ -24,7 +24,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY . .
 
 # Install project dependencies
-RUN composer install --no-interaction --no-scripts --no-plugins
+RUN composer install --no-interaction --no-scripts --no-plugins --ignore-platform-reqs
 
 # Generate application key
 RUN php artisan key:generate
